@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public Camera mainCamera;
+    public Camera hoodCamera;
+    public KeyCode switchKey; 
     private float speed = 35.0f;
     private float turnSpeed = 50.0f;
     private float horizontalInput;
@@ -19,6 +22,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(forwardInput.GetKeyDown(switchKey))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            hoodCamera.enabled = !hoodCamera.enabled; 
+
+        }
+
+
+
         // Move the vehicle forward
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
