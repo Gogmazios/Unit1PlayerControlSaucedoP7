@@ -22,15 +22,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(forwardInput.GetKeyDown(switchKey))
-        {
-            mainCamera.enabled = !mainCamera.enabled;
-            hoodCamera.enabled = !hoodCamera.enabled; 
-
-        }
-
-
-
         // Move the vehicle forward
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
@@ -38,6 +29,12 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         //moves the tank from side to side aka makes it possibly do the cha cha side
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
-       
+
+        if (Input.GetKeyDown(switchKey))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            hoodCamera.enabled = !hoodCamera.enabled;
+
+        }
     }
 }
