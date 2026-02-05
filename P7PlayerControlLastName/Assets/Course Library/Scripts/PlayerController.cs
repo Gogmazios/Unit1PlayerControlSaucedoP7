@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public string inputID; 
 
 
 
@@ -22,9 +22,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Move the vehicle forward
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+
+        // Move the players vehicles forward
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
+        forwardInput = Input.GetAxis("Vertical" + inputID);
         //moos ze tank on forward y forwards
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         //moves the tank from side to side aka makes it possibly do the cha cha side
