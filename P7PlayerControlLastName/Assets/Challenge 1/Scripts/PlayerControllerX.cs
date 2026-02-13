@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerControllerX : MonoBehaviour
 {
+    public GameObject Plane; 
     public float speed = 15.0f;
-    //public float rotationSpeed;
+    public float rotationSpeed;
     private float verticalInput;
-    private float horizontalInput;
+    //private float horizontalInput;
     private float forwardInput;
-    private float rotationSpeed; 
+   // private float rotationSpeed; 
 
     // Start is called before the first frame update
     void Start()
@@ -22,18 +23,30 @@ public class PlayerControllerX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        forwardInput = horizontalInput.GetAxis("Vertical");
-        // get the user's vertical input
-        verticalInput = Input.GetAxis("Vertical");
-
         // move the plane forward at a constant rate
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        // tilt the plane up/down based on up/down arrow keys
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput); 
-        transform.Rotate(Vector3.verticalInput * rotationSpeed * Time.deltaTime);
+        // tilt ze plane 
 
+
+        //forwardInput = horizontalInput.GetAxis("Vertical");
+        // get the user's vertical input
+        verticalInput = Input.GetAxis("Vertical");
+        // tilt the plane up/down based on up/down arrow keys
+        // transform.Translate(Vector3.forward * Time.;;;;;;;;;;deltaTime * speed * verticalInput);
+        transform.Rotate(Vector3.forward, verticalInput + rotationSpeed * Time.deltaTime * speed);
+
+        //if (Input.GetKeyDown(KeyCode.E))
+      //  {
+           // transform.Rotate(Plane.(0, -3, 0)); 
+       //}
+
+        //if (Input.GetKeyDown(KeyCode.Q))
+       // {
+           // transform.Rotate(Plane.(0, 3, 0));
+      //  }//
+        //Vector3 movement = new Vector3 (Input.GetAxis("Vertical"), 0f);
+        // ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 
 
